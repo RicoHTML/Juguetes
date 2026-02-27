@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SUKI TOYS - Figuras y Peluches de Japón</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    background: linear-gradient(135deg,#1a1a2e,#16213e);
+    color:white;
+    overflow-x:hidden;
+}
+
+/* NAV */
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 8%;
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(10px);
+    position:sticky;
+    top:0;
+}
+
+nav h1{
+    color:#ff4da6;
+    font-weight:800;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:20px;
+    font-weight:500;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#ff4da6;
+}
+
+/* HERO */
+
+.hero{
+    height:90vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:0 10%;
+}
+
+.hero h2{
+    font-size:3rem;
+    margin-bottom:20px;
+}
+
+.hero span{
+    color:#ff4da6;
+}
+
+.hero p{
+    opacity:0.8;
+    margin-bottom:30px;
+}
+
+.btn{
+    background:#ff4da6;
+    padding:12px 25px;
+    border:none;
+    border-radius:30px;
+    color:white;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.btn:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 20px #ff4da6;
+}
+
+/* PRODUCTOS */
+
+.section{
+    padding:80px 8%;
+}
+
+.section h3{
+    text-align:center;
+    font-size:2rem;
+    margin-bottom:40px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:#0f3460;
+    border-radius:15px;
+    overflow:hidden;
+    transition:0.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 15px 30px rgba(0,0,0,0.5);
+}
+
+.card img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:15px;
+}
+
+.price{
+    color:#ff4da6;
+    font-weight:600;
+    margin-top:10px;
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:30px;
+    background:#0a0a0a;
+    margin-top:50px;
+    font-size:0.9rem;
+    opacity:0.7;
+}
+
+/* ANIMACIONES */
+
+.fade-in{
+    opacity:0;
+    transform:translateY(30px);
+    transition:0.8s ease;
+}
+
+.fade-in.visible{
+    opacity:1;
+    transform:translateY(0);
+}
+
+</style>
+</head>
+<body>
+
+<nav>
+    <h1>SUKI TOYS</h1>
+    <div>
+        <a href="#">Inicio</a>
+        <a href="#productos">Productos</a>
+        <a href="#contacto">Contacto</a>
+    </div>
+</nav>
+
+<section class="hero fade-in">
+    <div>
+        <h2>Figuras y Peluches <span>Directo de Japón</span> 🇯🇵</h2>
+        <p>Envíos a todo Argentina • Novedades todas las semanas</p>
+        <button class="btn" onclick="scrollToProducts()">Ver Productos</button>
+    </div>
+</section>
+
+<section class="section" id="productos">
+    <h3 class="fade-in">Nuevos Ingresos ✨</h3>
+
+    <div class="grid">
+        <div class="card fade-in">
+            <img src="piplup.jpg" alt="">
+            <div class="card-content">
+                <h4>Piplup Plush</h4>
+                <p class="price">$28.000</p>
+                <button class="btn">Consultar</button>
+            </div>
+        </div>
+
+        <div class="card fade-in">
+            <img src="mimikyu.jpg" alt="">
+            <div class="card-content">
+                <h4>Mimikyu Plush</h4>
+                <p class="price">$32.000</p>
+                <button class="btn">Consultar</button>
+            </div>
+        </div>
+
+        <div class="card fade-in">
+            <img src="pikachu.jpg" alt="">
+            <div class="card-content">
+                <h4>Pikachu Hoodie</h4>
+                <p class="price">$35.000</p>
+                <button class="btn">Consultar</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section fade-in" id="contacto">
+    <h3>Responde tus dudas</h3>
+    <div style="text-align:center;margin-top:20px;">
+        <a href="https://wa.me/5490000000000" target="_blank">
+            <button class="btn">Hablar por WhatsApp</button>
+        </a>
+    </div>
+</section>
+
+<footer>
+    © 2026 SUKI TOYS • Directos desde Japón 🇯🇵
+</footer>
+
+<script>
+
+function scrollToProducts(){
+    document.getElementById("productos").scrollIntoView({behavior:"smooth"});
+}
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.classList.add("visible");
+        }
+    });
+});
+
+document.querySelectorAll(".fade-in").forEach(el => {
+    observer.observe(el);
+});
+
+</script>
+
+</body>
+</html>
